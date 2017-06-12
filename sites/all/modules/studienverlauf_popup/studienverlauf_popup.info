@@ -1,0 +1,4 @@
+name = Studienverlauf Popup
+core = 7.x
+description = Shows a specific popup
+dependencies[] = popup
