@@ -38,9 +38,10 @@ function studienverlauf_popup_node_view($node, $view_mode, $langcode)
 {
     //dsm($node);
     //dsm($node);
+    drupal_add_css(drupal_get_path('module','studienverlauf_popup') . '/css/studienverlauf_popup.css');
     module_load_include('inc', 'popup', 'includes/popup.api');
 
-
+    $img = "<img src='" . drupal_get_path('module', 'studienverlauf_popup') . "/Studienstruktur.jpg'>'";
     $markup = '<p>Die Regelstudienzeit im Bachelor-Studium Wirtschaftsinformatik an der Universität Hildesheim beläuft 
                     sich auf insgesamt sechs Semester. Innerhalb der ersten vier Studienhalbjahren wird der Fokus auf 
                     die Vermittlung der Grundlagen gelegt. Neben den bereits genannten Oberthemen im vorherigen Absatz werden 
@@ -52,7 +53,13 @@ function studienverlauf_popup_node_view($node, $view_mode, $langcode)
                     auch eine Kooperation mit dem Unternehmen bei der Fertigung der dreimonatigen Bachelor-Arbeit, 
                     mit der das Studium abgeschlossen wird. Neben dem Pflichtpraktikum kann zwischen vielen verschiedenen 
                     weiteren Kursen gewählt werden, um sich bereits im Bachelor-Studiengang auf 
-                    ein Themengebiet zu spezialisieren.</p><p>Informationen zum Studienverlauf finden Sie ' . popup(array('text' => 'Hier kommt noch das Popup für die Struktur hin', 'activate' => 'click', 'ajax' => 1,)) . ' hier</p>';
+                    ein Themengebiet zu spezialisieren.</p>
+                    <p>Informationen zum Studienverlauf finden Sie hier:</p> ' .
+
+                    popup_element('Studienstruktur',
+                        '<img src="http://localhost/wi_landing_page/sites/default/files/Studienstruktur.jpg">',
+                        array('effect' => 'fade', 'class' => 'Studienstruktur'));
+
 
     //$markup = studienverlauf_popup_content();
     if($node->nid == 10) {
